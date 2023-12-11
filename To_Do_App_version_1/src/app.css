@@ -1,0 +1,14 @@
+.heading {
+    margin: 10px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 48px;
+}
+
+.content-row {
+    margin: 10px;
+}
+
+.item {
+    text-align: left;
+}
