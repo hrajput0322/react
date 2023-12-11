@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.calculator {
+    border: 1px solid rgb(215, 204, 204);
+    border-radius: 10px;
+    padding: 10px;
+    width: 500px;
+    text-align: center;
+    margin-top: 25px;
+}
