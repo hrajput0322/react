@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from "./ToDoItem.module.css";
 
-function ToDoItem({ todoName, dueDate }) {
+function ToDoItem({ todoName, dueDate, onDeleteHandle }) {
   return (
     <div className={`${styles.item} container`}>
       <div className="row content-row">
@@ -12,7 +12,7 @@ function ToDoItem({ todoName, dueDate }) {
           {dueDate}
         </div>
         <div className="col-2">
-          <button className="btn btn-danger form-control">Delete</button>
+          <button className="btn btn-danger form-control" onClick={() => {onDeleteHandle(todoName)}}>Delete</button>
         </div>
       </div>
     </div>
@@ -22,6 +22,7 @@ function ToDoItem({ todoName, dueDate }) {
 ToDoItem.propTypes = {
   todoName: PropTypes.string.isRequired,
   dueDate: PropTypes.string.isRequired,
+  onDeleteHandle: PropTypes.func.isRequired
 };
 
 export default ToDoItem;
