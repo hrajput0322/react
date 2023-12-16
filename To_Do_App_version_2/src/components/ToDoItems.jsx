@@ -1,7 +1,10 @@
+import { useContext } from "react";
+import { Items } from "../store/ItemsStore";
 import ToDoItem from "./ToDoItem";
 import PropTypes from "prop-types";
 
-const ToDoItems = ( {items, onDeleteHandle} ) => {
+const ToDoItems = ( {onDeleteHandle} ) => {
+    const items = useContext(Items);
     return (
         <div>
             {items.map((item)=> <ToDoItem key={item.todoName} todoName={item.todoName} dueDate={item.dueDate} onDeleteHandle={onDeleteHandle}></ToDoItem>)}
@@ -10,7 +13,6 @@ const ToDoItems = ( {items, onDeleteHandle} ) => {
 }
 
 ToDoItems.propTypes = {
-    items: PropTypes.array.isRequired,
     onDeleteHandle: PropTypes.func.isRequired
   };
 

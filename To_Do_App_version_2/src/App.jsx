@@ -3,6 +3,8 @@ import AddToDo from "./components/AddToDo"
 import ToDoItems from "./components/ToDoItems"
 import { useState } from "react";
 import WelcomeMessage from "./components/WelcomeMessage";
+import Items from "./store/ItemsStore";
+
 import "./app.css"
 
 function App() {
@@ -10,11 +12,8 @@ function App() {
   ]);
 
   const onAddHandle = (enteredName, enteredDate) => {
-    const newItems = [...items, {
-      todoName: enteredName,
-      dueDate: enteredDate
-    }]
-    setItems(newItems);
+    setItems((currValue)=>
+    [...currValue, {todoName: enteredName, dueDate: enteredDate}])
   }
 
   const onDeleteHandle = (nameToDelete) => {
@@ -23,12 +22,14 @@ function App() {
   }
 
   return (
-    <center>
+    <Items.Provider value={items}>
+      <center>
       <AppName />
       <AddToDo onAddHandle={onAddHandle}/>
-      {items.length===0 && <WelcomeMessage />}
-      <ToDoItems items={items} onDeleteHandle={onDeleteHandle}/>
+      <WelcomeMessage />
+      <ToDoItems onDeleteHandle={onDeleteHandle}/>
     </center>
+    </Items.Provider>
   )
 }
 
