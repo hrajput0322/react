@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-
 // import PropTypes from "prop-types"
+import { Link } from "react-router-dom";
 const Sidebar = () => {
 
   return (
@@ -19,7 +18,7 @@ const Sidebar = () => {
       </a>
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
-        <li>
+        <li className="nav-item">
           <Link
             to="/"
             className="nav-link text-white"
